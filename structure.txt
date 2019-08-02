@@ -1,0 +1,37 @@
+import pygame
+
+from block import Block
+from character import Character
+from controls import Controls
+from screen import Screen
+from time import Time
+
+class Exit:
+    def __init__(self):
+        self.condition = True
+
+    def update(self):
+        self.condition = False
+
+def main():
+    pygame.init()
+    
+    b = Block()
+    c = Controls()
+    e = Exit()
+    p = Character()
+    s = Screen()
+    t = Time()
+
+    while e.condition:
+        b.update()
+        c.update()
+        e.update(c)
+        p.update(b, c)
+        s.update()
+        t.update()
+    
+    pygame.quit()
+
+if __name__=="__main__":
+    main()
